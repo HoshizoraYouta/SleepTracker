@@ -2,33 +2,27 @@
   "name": "my-sleep",
   "private": true,
   "version": "0.0.0",
-  "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc -b && vite build",
-    "lint": "eslint .",
-    "preview": "npm run build && wrangler dev",
-    "deploy": "npm run build && wrangler deploy"
+    "dev": "next dev",
+    "build": "next build",
+    "lint": "next lint",
+    "preview": "npm run build && npx @cloudflare/next-on-pages && wrangler dev",
+    "deploy": "npm run build && npx @cloudflare/next-on-pages && wrangler deploy"
   },
   "dependencies": {
     "chart.js": "^4.5.1",
+    "next": "^15.3.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0"
   },
   "devDependencies": {
-    "@cloudflare/vite-plugin": "^1.26.1",
-    "@eslint/js": "^9.39.1",
+    "@cloudflare/next-on-pages": "^1.13.7",
     "@types/node": "^24.10.1",
     "@types/react": "^19.2.7",
     "@types/react-dom": "^19.2.3",
-    "@vitejs/plugin-react": "^5.1.1",
     "eslint": "^9.39.1",
-    "eslint-plugin-react-hooks": "^7.0.1",
-    "eslint-plugin-react-refresh": "^0.4.24",
-    "globals": "^16.5.0",
+    "eslint-config-next": "^15.3.0",
     "typescript": "~5.9.3",
-    "typescript-eslint": "^8.48.0",
-    "vite": "^7.3.1",
     "wrangler": "^4.71.0"
   }
 }
