@@ -99,7 +99,7 @@ export default function App() {
   const dispChartRef = useRef<HTMLCanvasElement>(null)
   const barChart = useRef<Chart | null>(null)
   const dispChart = useRef<Chart | null>(null)
-  const toastTimer = useRef<ReturnType<typeof setTimeout>>()
+  const toastTimer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined)
 
   // Load times when date changes
   useEffect(() => {
