@@ -102,6 +102,7 @@ h1 em { font-style: italic; color: var(--accent); }
   grid-column: 1;
   position: sticky;
   top: 24px;
+  min-width: 0;
 }
 
 .charts-col {
@@ -109,11 +110,14 @@ h1 em { font-style: italic; color: var(--accent); }
   display: flex;
   flex-direction: column;
   gap: 24px;
+  min-width: 0;
 }
 
 @media (max-width: 900px) {
+  .container { padding-left: 20px; padding-right: 20px; }
   .app-layout { grid-template-columns: 1fr; }
-  .sidebar { position: static; }
+  .sidebar { position: static; grid-column: 1; }
+  .charts-col { grid-column: 1; }
 }
 
 /* ── Cards ── */
@@ -318,7 +322,8 @@ input[type="time"]::-webkit-calendar-picker-indicator { filter: invert(0.5); cur
 .peak-window strong { color: var(--bright); }
 
 /* ── Ad ── */
-.ad-placeholder { margin-top: 24px; }
+.ad-placeholder { margin-top: 24px; min-height: 0; }
+.ad-placeholder:has(.adsbygoogle:empty) { display: none; }
 .ad-label {
   display: block;
   font-size: 0.6rem;
@@ -351,8 +356,50 @@ input[type="time"]::-webkit-calendar-picker-indicator { filter: invert(0.5); cur
 
 .toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
 
+/* ── Tablet (single-column, form starts stacking) ── */
+@media (max-width: 720px) {
+  .time-inputs { flex-direction: column; gap: 8px; }
+  .time-chip-group { min-width: unset; width: 100%; }
+  .btn { width: 100%; text-align: center; }
+
+  .date-row { flex-wrap: nowrap; }
+  input[type="date"] { flex: 1; min-width: 0; }
+}
+
+/* ── Mobile ── */
 @media (max-width: 520px) {
+  .container { padding: 28px 14px 64px; }
+
+  header { margin-bottom: 32px; }
+  .moon-icon { font-size: 2rem; margin-bottom: 12px; }
+
+  .card { padding: 20px 16px; border-radius: 12px; }
+  .card-title { font-size: 0.95rem; margin-bottom: 16px; letter-spacing: 0.1em; }
+
+  /* Date row: label above input on very small screens */
+  .date-row { flex-direction: column; align-items: flex-start; gap: 6px; }
+  input[type="date"] { width: 100%; }
+
   .stats-row { gap: 8px; }
+  .stat-box { padding: 14px 8px; border-radius: 10px; }
   .stat-value { font-size: 1.5rem; }
-  .card { padding: 22px 18px; }
+  .stat-label { font-size: 0.56rem; letter-spacing: 0.1em; }
+
+  .chart-wrap { height: 190px; }
+
+  .dispersion-legend { gap: 4px 12px; font-size: 0.62rem; }
+
+  .peak-window { font-size: 0.68rem; padding: 10px 12px; }
+
+  .wakeup-chip { font-size: 0.75rem; padding: 5px 12px 5px 14px; }
+
+  .toast {
+    left: 14px;
+    right: 14px;
+    width: auto;
+    transform: translateX(0) translateY(80px);
+    text-align: center;
+    bottom: 24px;
+  }
+  .toast.show { transform: translateX(0) translateY(0); }
 }

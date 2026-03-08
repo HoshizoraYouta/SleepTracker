@@ -15,7 +15,7 @@ export default function AdSense() {
       <span className="ad-label">advertisement</span>
       <ins
         className="adsbygoogle"
-        style={{ display: 'block', minWidth: 250, minHeight: 250 }}
+        style={{ display: 'block' }}
         data-ad-client="ca-pub-3748697422526362"
         data-ad-slot="3789967810"
         data-ad-format="auto"
