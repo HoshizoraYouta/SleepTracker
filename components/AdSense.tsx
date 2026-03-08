@@ -19,7 +19,7 @@ export default function AdSense() {
         data-ad-client="ca-pub-3748697422526362"
         data-ad-slot="3789967810"
         data-ad-format="auto"
-        data-full-width-responsive="true"
+        data-full-width-responsive="false"
       />
     </div>
   )
