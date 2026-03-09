@@ -5,6 +5,7 @@
   "observability": {
     "enabled": true
   },
+  "main": "app/page.tsx",
   "compatibility_flags": [
     "nodejs_compat"
   ]
