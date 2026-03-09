@@ -34,3 +34,6 @@ out
 !.dev.vars.example
 .env*
 !.env.example
+
+# OpenNext
+.open-next

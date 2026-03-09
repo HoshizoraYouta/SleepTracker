@@ -3,13 +3,16 @@
   "private": true,
   "version": "0.0.0",
   "scripts": {
-    "dev": "next dev",
     "build": "next build",
+    "dev": "next dev",
     "lint": "next lint",
-    "preview": "npm run build && npx @cloudflare/next-on-pages && wrangler dev",
-    "deploy": "npm run build && npx @cloudflare/next-on-pages && wrangler deploy"
+    "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
+    "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
+    "upload": "opennextjs-cloudflare build && opennextjs-cloudflare upload",
+    "cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts"
   },
   "dependencies": {
+    "@opennextjs/cloudflare": "^1.17.1",
     "chart.js": "^4.5.1",
     "next": "^15.3.0",
     "react": "^19.2.0",
